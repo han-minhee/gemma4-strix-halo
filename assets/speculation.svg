@@ -86,7 +86,7 @@ z
      </g>
     </g>
     <g id="text_9">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="427.68" y="364.950281" transform="rotate(-0 427.68 364.950281)">Maximum draft tokens</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="427.68" y="364.950281" transform="rotate(-0 427.68 364.950281)">Draft tokens</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
@@ -168,7 +168,7 @@ L 777.6 108.864
      </g>
     </g>
     <g id="text_17">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="48.119922" y="217.728" transform="rotate(-90 48.119922 217.728)">Median generation · tok/s</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="48.119922" y="217.728" transform="rotate(-90 48.119922 217.728)">Median · tok/s</text>
     </g>
    </g>
    <g id="FillBetweenPolyCollection_1">
@@ -276,13 +276,13 @@ z
    </g>
   </g>
   <g id="text_26">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">MTP draft depth</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">MTP depth</text>
   </g>
   <g id="text_27">
    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · Q4_K_M · Q8 assistant</text>
   </g>
   <g id="text_28">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 9 requests per case</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · n=9</text>
   </g>
  </g>
  <defs>

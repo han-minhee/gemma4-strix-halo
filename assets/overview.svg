@@ -166,23 +166,23 @@ z
     <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="356.6902" y="335.680695" transform="rotate(-0 356.6902 335.680695)">11.28</text>
    </g>
    <g id="text_14">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="155.52" y="189.344" transform="rotate(-0 155.52 189.344)">Generation throughput</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="155.52" y="189.344" transform="rotate(-0 155.52 189.344)">Generation</text>
    </g>
   </g>
   <g id="text_15">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="31.248" transform="rotate(-0 56.16 31.248)">Gemma 4 31B performance</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="31.248" transform="rotate(-0 56.16 31.248)">Gemma 4 31B</text>
   </g>
   <g id="text_16">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="60.264" transform="rotate(-0 56.16 60.264)">ASUS ROG Flow Z13 (2025) · Ryzen AI Max+ 395 · 64 GiB</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="60.264" transform="rotate(-0 56.16 60.264)">ROG Flow Z13 (2025)</text>
   </g>
   <g id="text_17">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="428.544" transform="rotate(-0 56.16 428.544)">Vulkan · Q4_K_M · 128 output tokens · 9 requests</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="428.544" transform="rotate(-0 56.16 428.544)">Vulkan · Q4_K_M · 128 tokens · n=9</text>
   </g>
   <g id="text_18">
    <text style="font-weight: 700; font-size: 31px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #2563eb" x="56.16" y="118.296" transform="rotate(-0 56.16 118.296)">24.28</text>
   </g>
   <g id="text_19">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="140.616" transform="rotate(-0 56.16 140.616)">TOKENS / SECOND · MEDIAN</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="140.616" transform="rotate(-0 56.16 140.616)">MEDIAN TOK/S</text>
   </g>
   <g id="text_20">
    <text style="font-weight: 700; font-size: 31px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #008779" x="332.64" y="118.296" transform="rotate(-0 332.64 118.296)">2.15×</text>
@@ -194,7 +194,7 @@ z
    <text style="font-weight: 700; font-size: 31px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #8063c7" x="617.76" y="118.296" transform="rotate(-0 617.76 118.296)">0.535 s</text>
   </g>
   <g id="text_23">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="617.76" y="140.616" transform="rotate(-0 617.76 140.616)">FIRST TOKEN · MEDIAN</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="617.76" y="140.616" transform="rotate(-0 617.76 140.616)">MEDIAN TTFT</text>
   </g>
  </g>
  <defs>

@@ -3,11 +3,11 @@
 | File | Contents |
 |---|---|
 | `metrics.json` | Chart inputs and aggregates |
-| `request-metrics.json` | 86 cases: numeric requests, settings, statuses, output hashes |
+| `request-metrics.json` | 86 cases; requests, settings, statuses |
 | `provenance.json` | Original artifact hashes |
-| `software.json` | Software versions and package records |
+| `software.json` | Software/package versions |
 
-Response text and credentials are excluded. Failed cases are retained but omitted from charts. Initial and campaign results are separate batches.
+No responses or credentials. Charts exclude failures. Initial/campaign batches are separate.
 
 [Runtime/model pins](../versions.json) · [Experimental source pins](../experiments/sources.json)
 

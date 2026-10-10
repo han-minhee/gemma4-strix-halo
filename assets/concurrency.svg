@@ -159,7 +159,7 @@ z
     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="320.417527" transform="rotate(-0 194.22 320.417527)">p95 14.28 s</text>
    </g>
    <g id="text_16">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="190.08" y="100.928" transform="rotate(-0 190.08 100.928)">2 simultaneous requests</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="190.08" y="100.928" transform="rotate(-0 190.08 100.928)">2 requests</text>
    </g>
   </g>
   <g id="axes_2">
@@ -294,17 +294,17 @@ z
     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="320.417527" transform="rotate(-0 625.86 320.417527)">p95 16.84 s</text>
    </g>
    <g id="text_32">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="622.08" y="100.928" transform="rotate(-0 622.08 100.928)">4 simultaneous requests</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="622.08" y="100.928" transform="rotate(-0 622.08 100.928)">4 requests</text>
    </g>
   </g>
   <g id="text_33">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Concurrent throughput</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Concurrency</text>
   </g>
   <g id="text_34">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · 8K context per request · 128 output tokens</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · 8K context/request · 128 tokens</text>
   </g>
   <g id="text_35">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 3 batches · p95 completion shown below bars</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 3 batches · p95 completion</text>
   </g>
  </g>
  <defs>

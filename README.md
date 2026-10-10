@@ -1,24 +1,16 @@
 # Gemma 4 31B · Strix Halo
 
-**ASUS ROG Flow Z13 (2025)**
+**ROG Flow Z13 (2025)** · Ryzen AI Max+ 395 · Radeon 8060S · 64 GiB
 
-![Generation throughput](assets/overview.png)
+![Generation](assets/overview.png)
 
-## Hardware
-
-| Component | Specification |
-|---|---|
-| APU | Ryzen AI Max+ 395 |
-| GPU | Radeon 8060S · gfx1151 |
-| Memory | 64 GiB · 8000 MT/s · 16 GiB GPU reservation |
-
-## Software
+## Stack
 
 | Component | Version |
 |---|---|
-| OS / kernel | Fedora 44 / Linux 7.2.9 |
+| Fedora / Linux | 44 / 7.2.9 |
 | llama.cpp | v0.6.0 · `d812350` |
-| ROCm SDK | 10.1.0 · gfx1151 |
+| ROCm | 10.1.0 |
 | Mesa / RADV | 26.2.3 |
 | Vulkan loader | 1.4.341.0 |
 | GCC / CMake | 16.2.1 / 4.3.0 |
@@ -26,16 +18,10 @@
 
 Q4_K_M · Q8 assistant · MTP-4 · F16 KV · 8K context
 
-## Quantization
-
 ![Quantization](assets/quantization.png)
 
-## Long context
+![Context](assets/long-context.png)
 
-![Long-context latency](assets/long-context.png)
+![Concurrency](assets/concurrency.png)
 
-## Concurrency
-
-![Concurrent throughput](assets/concurrency.png)
-
-[Setup](docs/setup.md) · [Methodology](docs/methodology.md) · [Experiments](docs/experiments.md) · [Data](data/README.md) · [Licenses](THIRD_PARTY_NOTICES.md)
+[Setup](docs/setup.md) · [Metrics](docs/methodology.md) · [Experiments](docs/experiments.md) · [Data](data/README.md) · [License](LICENSE)

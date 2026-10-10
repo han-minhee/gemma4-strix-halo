@@ -1,27 +1,21 @@
 # Experiments
 
-## MTP depth
+![MTP depth](../assets/speculation.png)
 
-![MTP draft depth](../assets/speculation.png)
-
-Depth 4 remains the reference. Confidence filtering and adaptive MTP produced no qualifying gain.
-
-## Kernel dispatch
-
-![Vulkan kernel dispatch](../assets/kernel-boundary.png)
-
-The 16-column dispatch patch improved MTP-8 but did not beat MTP-4. Selected numerical checks passed. The HIP wide-attention patch remains unqualified.
-
-## Results
+![Kernel dispatch](../assets/kernel-boundary.png)
 
 | Approach | Result |
 |---|---|
-| CPU-only | 4.10 tok/s · synthetic benchmark |
-| Q4 assistants | About 2% faster · below promotion threshold |
-| CPU affinity / polling | 23.62–23.72 median tok/s |
-| ROCmFP4, plain decode | 11.97 Vulkan / 10.95 HIP aggregate tok/s |
-| ROCmFPX MTP repairs | Model-level validation failed |
+| MTP depth | Reference: 4 |
+| Confidence / adaptive MTP | No qualifying gain |
+| 16-column dispatch | MTP-8: 19.02 tok/s; below MTP-4 |
+| HIP wide attention | Unqualified |
+| CPU-only | 4.10 tok/s · synthetic |
+| Q4 assistants | About +2% |
+| Affinity / polling | 23.62–23.72 median tok/s |
+| ROCmFP4, plain | 11.97 Vulkan / 10.95 HIP aggregate tok/s |
+| ROCmFPX MTP | Validation failed |
 | Four-slot HIP | 4800 MiB KV allocation failed |
-| NPU | No executable 31B target/assistant path established |
+| NPU | No 31B target/assistant execution path |
 
-[Patches](../patches/) · [Methodology](methodology.md) · [Source pins](../experiments/sources.json)
+[Patches](../patches/) · [Gates](methodology.md) · [Source pins](../experiments/sources.json)
