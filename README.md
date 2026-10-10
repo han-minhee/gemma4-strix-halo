@@ -1,16 +1,30 @@
 # Gemma 4 31B · Strix Halo
 
-**ASUS ROG Flow Z13 (2025)** · Vulkan/HIP benchmarks, Compose stack, kernel patches.
+**ASUS ROG Flow Z13 (2025)**
 
 ![Generation throughput](assets/overview.png)
 
-## Configuration
+## Hardware
 
-| Hardware | Software |
+| Component | Specification |
 |---|---|
-| Ryzen AI Max+ 395 · Radeon 8060S | Fedora 44 · llama.cpp v0.6.0 |
-| 64 GiB · 8000 MT/s | Vulkan · Q4_K_M · Q8 assistant |
-| 16 GiB GPU reservation | MTP-4 · F16 KV · 8K context |
+| APU | Ryzen AI Max+ 395 |
+| GPU | Radeon 8060S · gfx1151 |
+| Memory | 64 GiB · 8000 MT/s · 16 GiB GPU reservation |
+
+## Software
+
+| Component | Version |
+|---|---|
+| OS / kernel | Fedora 44 / Linux 7.2.9 |
+| llama.cpp | v0.6.0 · `d812350` |
+| ROCm SDK | 10.1.0 · gfx1151 |
+| Mesa / RADV | 26.2.3 |
+| Vulkan loader | 1.4.341.0 |
+| GCC / CMake | 16.2.1 / 4.3.0 |
+| Docker / Compose | 29.7.2 / 5.5.1 |
+
+Q4_K_M · Q8 assistant · MTP-4 · F16 KV · 8K context
 
 ## Quantization
 
@@ -24,16 +38,4 @@
 
 ![Concurrent throughput](assets/concurrency.png)
 
-**Status:** optimization paused. Candidates require quality and paired validation; the original preset remains deployed. NPU acceleration is unvalidated.
-
-## Reproduce
-
-[Setup](docs/setup.md) · [Methodology](docs/methodology.md) · [Experiments](docs/experiments.md) · [Data](data/README.md)
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install -r tools/requirements-charts.txt
-.venv/bin/python tools/render_charts.py
-```
-
-MIT licensed. [Third-party notices](THIRD_PARTY_NOTICES.md).
+[Setup](docs/setup.md) · [Methodology](docs/methodology.md) · [Experiments](docs/experiments.md) · [Data](data/README.md) · [Licenses](THIRD_PARTY_NOTICES.md)

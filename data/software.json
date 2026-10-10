@@ -1,0 +1,26 @@
+{
+  "os": "Fedora 44",
+  "kernel": "7.2.9",
+  "llama_cpp": {
+    "release": "v0.6.0",
+    "commit": "d81235049384534c167caea52b85a694f6103d14"
+  },
+  "rocm_sdk": "10.1.0",
+  "mesa_radv": "26.2.3",
+  "vulkan_loader": "1.4.341.0",
+  "gcc": "16.2.1",
+  "cmake": "4.3.0",
+  "docker": "29.7.2",
+  "compose": "5.5.1",
+  "rpm_packages": [
+    "cmake-4.3.0-1.fc44.x86_64",
+    "docker-cli-29.7.2-1.fc44.x86_64",
+    "docker-compose-5.5.1-1.fc44.x86_64",
+    "gcc-16.2.1-2.fc44.x86_64",
+    "gcc-c++-16.2.1-2.fc44.x86_64",
+    "mesa-vulkan-drivers-26.2.3-1.fc44.x86_64",
+    "moby-engine-29.7.2-1.fc44.x86_64",
+    "vulkan-loader-1.4.341.0-1.fc44.x86_64"
+  ],
+  "inventory_sha256": "fd1d72e0f3a2e426603aad41df07c62114910c13220b394d0d7a9e0005e003fe"
+}

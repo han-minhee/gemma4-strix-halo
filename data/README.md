@@ -1,13 +1,20 @@
-# Published measurements
+# Data
 
 | File | Contents |
 |---|---|
-| `metrics.json` | Chart inputs and per-case aggregates |
-| `request-metrics.json` | 86 case exports plus kernel trace summary: numeric requests, settings, commands, statuses, output hashes |
-| `provenance.json` | SHA256 of original input artifacts |
+| `metrics.json` | Chart inputs and aggregates |
+| `request-metrics.json` | 86 cases: numeric requests, settings, statuses, output hashes |
+| `provenance.json` | Original artifact hashes |
+| `software.json` | Software versions and package records |
 
-Response text, API-key contents, host telemetry, private operator environments, and model weights are excluded. Command credential arguments are replaced by a placeholder. Failed cases remain in the export and are excluded from charts.
+Response text and credentials are excluded. Failed cases are retained but omitted from charts. Initial and campaign results are separate batches.
 
-`tools/export_metrics.py` regenerates these files from the original initial and campaign result directories. `tools/render_charts.py` renders all PNG/SVG figures from `metrics.json`. Initial deployment and later campaign measurements are separate batches; do not treat them as paired experiments.
+[Runtime/model pins](../versions.json) · [Experimental source pins](../experiments/sources.json)
 
-Source snapshot: `a15f821` from the local optimization worktree. Runtime and model pins: [`versions.json`](../versions.json). Experimental source commits: [`experiments/sources.json`](../experiments/sources.json). Original artifact hashes describe the measured harness; publication edits do not change those historical identities.
+## Charts
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r tools/requirements-charts.txt
+.venv/bin/python tools/render_charts.py
+```

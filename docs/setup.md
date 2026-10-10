@@ -1,6 +1,6 @@
 # Setup
 
-The measured host used Fedora 44 on AC power. The commands below reproduce the baseline; they do not provision storage or change boot/firmware settings. Default examples use `/srv/amd-halo`; adapt paths and device permissions to your machine.
+Fedora 44 · AC power · default path: `/srv/amd-halo`. [Software versions](../data/software.json).
 
 ## Build & models
 
@@ -12,7 +12,7 @@ bash scripts/build.sh vulkan
 python3 scripts/download.py Q4_K_M MTP --directory /srv/amd-halo/models
 ```
 
-[`versions.json`](../versions.json) pins the runtime commit, model revision, sizes, and SHA256 checksums. The Q4_K_M target is 18.32 GB; the Q8 assistant is 0.51 GB. Allow additional storage for builds and caches.
+Runtime/model hashes: [`versions.json`](../versions.json). Target: 18.32 GB; assistant: 0.51 GB.
 
 Native HIP is optional:
 
@@ -53,9 +53,9 @@ python3 scripts/http_profile.py --url http://127.0.0.1:8080 \
   --key-file /srv/amd-halo/secrets/api-key --output results/http.json
 ```
 
-For native benchmarks, stop Compose first. Campaign manifests assume a reference checkout at `/srv/amd-halo/stack` and an isolated experiment root; see the [experiment guide](../experiments/README.md). Some staged experiments are unfinished and may fail their gates.
+Stop Compose before native benchmarks. Reference checkout: `/srv/amd-halo/stack`. [Experiment guide](../experiments/README.md).
 
-The measured firmware performance profile improved long-prompt processing by 7.6%, with little plain-decode gain. The optional `systemd/amd-halo-performance.service` is reversible; its stop action restores balanced. Measurements in this repository use that profile unless stated otherwise.
+Benchmarks use the performance profile. `systemd/amd-halo-performance.service` applies it; stopping the unit restores balanced.
 
 ## Restore / stop
 
@@ -66,4 +66,4 @@ sudo docker compose -f compose.yaml -f compose.mtp.yaml up -d
 sudo docker compose -f compose.yaml -f compose.mtp.yaml down
 ```
 
-Retain a separate baseline checkout and private `.env` before testing candidates. Native patches do not replace the reference runtime. No inference or host tuning runs automatically when this repository is cloned.
+Keep the baseline checkout and private `.env` for rollback.

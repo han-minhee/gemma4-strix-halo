@@ -24,6 +24,4 @@ The 16-column dispatch patch improved MTP-8 but did not beat MTP-4. Selected num
 | Four-slot HIP | 4800 MiB KV allocation failed |
 | NPU | No executable 31B target/assistant path established |
 
-Pending: coding/strict-output gates, thermal stabilization, ten-pair comparisons, sustained-load and restart checks. No experimental preset was deployed.
-
 [Patches](../patches/) · [Methodology](methodology.md) · [Source pins](../experiments/sources.json)
