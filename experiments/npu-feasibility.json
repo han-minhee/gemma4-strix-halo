@@ -1,5 +1,4 @@
 {
-  "checked": "2026-10-10",
   "fastflowlm_commit": "e5e33d9f64388f4e239eb6584493c76ef5a07231",
   "registry_url": "https://raw.githubusercontent.com/ROCm/FastFlowLM/e5e33d9f64388f4e239eb6584493c76ef5a07231/src/include/AutoModel/all_models.hpp",
   "gemma_registry_lines": [

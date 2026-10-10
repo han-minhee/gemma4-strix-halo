@@ -53,7 +53,7 @@ def main():
     parser.add_argument('--initial', required=True, type=Path)
     parser.add_argument('--campaign', required=True, type=Path)
     args = parser.parse_args()
-    sources, evidence, metrics = {}, {}, {'measured_date': '2026-10-10', 'status': 'paused'}
+    sources, evidence, metrics = {}, {}, {'status': 'paused'}
     initial = {}
     for label, file in [('deployed', 'http-container.json'), ('plain-vulkan', 'http-vulkan/baseline.json')]:
         rows = load(args.initial / file, sources, 'initial/' + label)

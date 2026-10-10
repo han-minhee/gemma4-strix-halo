@@ -115,7 +115,7 @@ L 375.585882 116.928
      </g>
     </g>
     <g id="text_8">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="276.48" y="360.918281" transform="rotate(-0 276.48 360.918281)">tok/s · higher is better</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="276.48" y="360.918281" transform="rotate(-0 276.48 360.918281)">tok/s</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
@@ -241,7 +241,7 @@ L 789.400976 116.928
      </g>
     </g>
     <g id="text_21">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="682.56" y="360.918281" transform="rotate(-0 682.56 360.918281)">seconds · lower is better</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="682.56" y="360.918281" transform="rotate(-0 682.56 360.918281)">seconds</text>
     </g>
    </g>
    <g id="matplotlib.axis_4">
@@ -298,17 +298,17 @@ z
     <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="721.603017" y="295.910513" transform="rotate(-0 721.603017 295.910513)">0.536</text>
    </g>
    <g id="text_28">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="570.24" y="100.928" transform="rotate(-0 570.24 100.928)">Time to first token · p95</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="570.24" y="100.928" transform="rotate(-0 570.24 100.928)">First token · p95</text>
    </g>
   </g>
   <g id="text_29">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Faster 4-bit candidates. Quality gates pending.</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Quantization</text>
   </g>
   <g id="text_30">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Same-batch comparison · MTP-4 · Q4_K_M reference bracket: 24.74 → 24.72 aggregate decode tok/s</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · MTP-4</text>
   </g>
   <g id="text_31">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 9 timed requests / case · relative PPL checks passed · coding and strict-output validation incomplete</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · quality validation incomplete</text>
   </g>
  </g>
  <defs>

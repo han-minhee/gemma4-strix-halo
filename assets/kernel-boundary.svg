@@ -104,7 +104,7 @@ L 397.44 116.928
      </g>
     </g>
     <g id="text_7">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="298.08" y="360.918281" transform="rotate(-0 298.08 360.918281)">microseconds / call · lower is better</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="298.08" y="360.918281" transform="rotate(-0 298.08 360.918281)">microseconds / call</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
@@ -144,7 +144,7 @@ z
     <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="351.560957" y="282.904061" transform="rotate(-0 351.560957 282.904061)">936</text>
    </g>
    <g id="text_12">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="198.72" y="100.928" transform="rotate(-0 198.72 100.928)">Matrix operation duration</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="198.72" y="100.928" transform="rotate(-0 198.72 100.928)">Operation duration</text>
    </g>
   </g>
   <g id="axes_2">
@@ -202,7 +202,7 @@ L 790.167273 116.928
      </g>
     </g>
     <g id="text_17">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="730.08" y="360.918281" transform="rotate(-0 730.08 360.918281)">tok/s · higher is better</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="730.08" y="360.918281" transform="rotate(-0 730.08 360.918281)">tok/s</text>
     </g>
    </g>
    <g id="matplotlib.axis_4">
@@ -263,13 +263,13 @@ z
    </g>
   </g>
   <g id="text_25">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">The kernel boundary behind the MTP-8 cliff.</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Vulkan kernel dispatch</text>
   </g>
   <g id="text_26">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Same Q4_K feed-forward matrix · 21,504 output rows × 5,376 input columns · diagnostic operation timings</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Q4_K matrix · 21,504 × 5,376</text>
   </g>
   <g id="text_27">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Trace mixes warmup and timed calls · generation rates from separate screening batches · no patch promoted</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Diagnostic trace · generation from separate screening batches</text>
   </g>
  </g>
  <defs>

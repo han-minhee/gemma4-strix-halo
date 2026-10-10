@@ -221,7 +221,7 @@ z
     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #008779" x="374.661818" y="182.225677" transform="rotate(-0 374.661818 182.225677)">81.5</text>
    </g>
    <g id="text_18">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="77.76" y="96.896" transform="rotate(-0 77.76 96.896)">Time to first token</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="77.76" y="96.896" transform="rotate(-0 77.76 96.896)">First token · median</text>
    </g>
    <g id="legend_1">
     <g id="line2d_19">
@@ -417,7 +417,7 @@ L 790.167273 138.269651
     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #008779" x="790.167273" y="170.187928" transform="rotate(-0 790.167273 170.187928)">87.9</text>
    </g>
    <g id="text_39">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="509.76" y="96.896" transform="rotate(-0 509.76 96.896)">Request completion</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="509.76" y="96.896" transform="rotate(-0 509.76 96.896)">Completion · median</text>
    </g>
    <g id="legend_2">
     <g id="line2d_40">
@@ -459,13 +459,13 @@ L 683.242031 127.304281
    </g>
   </g>
   <g id="text_43">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Q8 KV helps cold long-context response.</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Long-context latency</text>
   </g>
   <g id="text_44">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · 128 output tokens · input uses half the allocated context · all scored retrieval checks passed</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · cold prefix · 128 output tokens</text>
   </g>
   <g id="text_45">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · medians of 3 requests · input / capacity: 4K / 8K, 8K / 16K, 16K / 32K · smaller is better</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 3 requests · context capacity = 2× input</text>
   </g>
  </g>
  <defs>

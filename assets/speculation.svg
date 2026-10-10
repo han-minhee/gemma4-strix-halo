@@ -256,9 +256,6 @@ z
    <g id="text_25">
     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #14243b" x="745.789091" y="239.543299" transform="rotate(-0 745.789091 239.543299)">10.34</text>
    </g>
-   <g id="text_26">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #008779" x="595.823377" y="130.6368" transform="rotate(-0 595.823377 130.6368)">Depth 4 remains the reference</text>
-   </g>
    <g id="PathCollection_1">
     <defs>
      <path id="m59291cc382" d="M 0 5.91608
@@ -278,14 +275,14 @@ z
     </g>
    </g>
   </g>
+  <g id="text_26">
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">MTP draft depth</text>
+  </g>
   <g id="text_27">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">More drafts do not mean faster answers.</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · Q4_K_M · Q8 assistant</text>
   </g>
   <g id="text_28">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">MTP depth sweep · same Vulkan binary, Q4_K_M target and Q8 assistant</text>
-  </g>
-  <g id="text_29">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · median decode · 3 prompts × 3 repetitions · thinking disabled · no candidate promoted</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 9 requests per case</text>
   </g>
  </g>
  <defs>

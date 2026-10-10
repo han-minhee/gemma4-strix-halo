@@ -93,7 +93,7 @@ L 355.68 116.928
      </g>
     </g>
     <g id="text_6">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="289.44" y="360.918281" transform="rotate(-0 289.44 360.918281)">Aggregate wall throughput · tok/s</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="289.44" y="360.918281" transform="rotate(-0 289.44 360.918281)">Aggregate · tok/s</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
@@ -150,13 +150,13 @@ z
     <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="281.668105" y="295.910513" transform="rotate(-0 281.668105 295.910513)">21.16</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="173.800048" transform="rotate(-0 194.22 173.800048)">p95 completion 12.78 s</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="173.799345" transform="rotate(-0 194.22 173.799345)">p95 12.78 s</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="247.109139" transform="rotate(-0 194.22 247.109139)">p95 completion 7.85 s</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="247.108436" transform="rotate(-0 194.22 247.108436)">p95 7.85 s</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="320.41823" transform="rotate(-0 194.22 320.41823)">p95 completion 14.28 s</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="194.22" y="320.417527" transform="rotate(-0 194.22 320.417527)">p95 14.28 s</text>
    </g>
    <g id="text_16">
     <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="190.08" y="100.928" transform="rotate(-0 190.08 100.928)">2 simultaneous requests</text>
@@ -228,7 +228,7 @@ L 773.28 116.928
      </g>
     </g>
     <g id="text_22">
-     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="712.8" y="360.918281" transform="rotate(-0 712.8 360.918281)">Aggregate wall throughput · tok/s</text>
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #607086" x="712.8" y="360.918281" transform="rotate(-0 712.8 360.918281)">Aggregate · tok/s</text>
     </g>
    </g>
    <g id="matplotlib.axis_4">
@@ -285,26 +285,26 @@ z
     <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="759.598701" y="295.910513" transform="rotate(-0 759.598701 295.910513)">35.42</text>
    </g>
    <g id="text_29">
-    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="173.800048" transform="rotate(-0 625.86 173.800048)">p95 completion 25.49 s</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="173.799345" transform="rotate(-0 625.86 173.799345)">p95 25.49 s</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="247.109139" transform="rotate(-0 625.86 247.109139)">p95 completion 14.53 s</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="247.108436" transform="rotate(-0 625.86 247.108436)">p95 14.53 s</text>
    </g>
    <g id="text_31">
-    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="320.41823" transform="rotate(-0 625.86 320.41823)">p95 completion 16.84 s</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="625.86" y="320.417527" transform="rotate(-0 625.86 320.417527)">p95 16.84 s</text>
    </g>
    <g id="text_32">
     <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="622.08" y="100.928" transform="rotate(-0 622.08 100.928)">4 simultaneous requests</text>
    </g>
   </g>
   <g id="text_33">
-   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Batching changes the best MTP setting.</text>
+   <text style="font-weight: 700; font-size: 24px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14243b" x="56.16" y="28.224" transform="rotate(-0 56.16 28.224)">Concurrent throughput</text>
   </g>
   <g id="text_34">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · equal 8K context capacity per request · compare the same number of simultaneous clients</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="54.432" transform="rotate(-0 56.16 54.432)">Vulkan · 8K context per request · 128 output tokens</text>
   </g>
   <g id="text_35">
-   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 128 tokens / request · aggregate wall throughput includes overhead · p95 from 3 timed batches</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #607086" x="56.16" y="387.072" transform="rotate(-0 56.16 387.072)">Screening · 3 batches · p95 completion shown below bars</text>
   </g>
  </g>
  <defs>

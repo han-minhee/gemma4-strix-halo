@@ -1,5 +1,4 @@
 {
-  "verified_date": "2026-10-10",
   "llama_release": "v0.6.0",
   "llama_commit": "d81235049384534c167caea52b85a694f6103d14",
   "model_repo": "unsloth/gemma-4-31B-it-GGUF",

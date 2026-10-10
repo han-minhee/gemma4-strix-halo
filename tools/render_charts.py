@@ -56,23 +56,21 @@ def save(fig, name):
 
 
 initial = D['initial']; deployed = initial['deployed']; plain = initial['plain-vulkan']
-fig = figure('31B inference. On a tablet.',
-    'ASUS ROG Flow Z13 (2025)  /  Ryzen AI Max+ 395  /  Radeon 8060S  /  64 GiB',
-    'Measured 2026-10-10 · Vulkan Q4_K_M · 128 output tokens · English, Python, Korean · 9 timed requests / configuration', 6.6)
+fig = figure('Gemma 4 31B performance',
+    'ASUS ROG Flow Z13 (2025) · Ryzen AI Max+ 395 · 64 GiB',
+    'Vulkan · Q4_K_M · 128 output tokens · 9 requests', 6.2)
 for x, value, label, color in [(.065, f"{deployed['median_decode_tps']:.2f}", 'TOKENS / SECOND · MEDIAN', BLUE),
-        (.385, f"{deployed['median_decode_tps']/plain['median_decode_tps']:.2f}×", 'VS PLAIN VULKAN · MEDIAN', TEAL),
-        (.715, f"{deployed['ttft_p50_s']:.3f} s", 'TIME TO FIRST TOKEN · MEDIAN', PURPLE)]:
+        (.385, f"{deployed['median_decode_tps']/plain['median_decode_tps']:.2f}×", 'VS PLAIN VULKAN', TEAL),
+        (.715, f"{deployed['ttft_p50_s']:.3f} s", 'FIRST TOKEN · MEDIAN', PURPLE)]:
     fig.text(x, .735, value, fontsize=31, fontweight='bold', color=color)
     fig.text(x, .685, label, fontsize=9, color=MUTED)
-ax=axis(fig,[.18,.18,.30,.36], 'Speculation earns its place', 'Generation · tok/s · higher is better')
+ax=axis(fig,[.18,.18,.68,.36], 'Generation throughput', 'Median · tok/s')
 bars(ax,['MTP-4','Plain'],[deployed['median_decode_tps'],plain['median_decode_tps']],[BLUE,GREY],35)
-ax=axis(fig,[.67,.18,.25,.36], 'Same model, different workloads', 'Median generation · tok/s')
-bars(ax,['English','Python','Korean'],[deployed['workloads'][k]['median_decode_tps'] for k in ('prose','code','korean')],[TEAL,BLUE,PURPLE],40)
 save(fig,'overview')
 
-fig=figure('More drafts do not mean faster answers.',
-    'MTP depth sweep · same Vulkan binary, Q4_K_M target and Q8 assistant',
-    'Screening · median decode · 3 prompts × 3 repetitions · thinking disabled · no candidate promoted')
+fig=figure('MTP draft depth',
+    'Vulkan · Q4_K_M · Q8 assistant',
+    'Screening · 9 requests per case')
 ax=axis(fig,[.09,.19,.81,.54],unit='Maximum draft tokens')
 ax.grid(axis='y',color=GRID); ax.xaxis.grid(False)
 rows=sorted(D['depth'],key=lambda r:int(r['case'].removeprefix('mtp')))
@@ -82,23 +80,22 @@ ax.fill_between(x,y,0,color=BLUE,alpha=.06)
 ax.set_ylim(0,30);ax.set_xticks(x);ax.set_ylabel('Median generation · tok/s')
 for a,b in zip(x,y):ax.annotate(f'{b:.2f}',(a,b),xytext=(0,12),textcoords='offset points',ha='center',fontsize=10)
 ax.scatter([4],[y[3]],s=140,color=TEAL,zorder=5)
-ax.text(6.35,27,'Depth 4 remains the reference',color=TEAL,fontweight='bold',fontsize=11)
 save(fig,'speculation')
 
 q=D['target-quants-results']; labels=['Q4_K_M','IQ4_XS','Q4_0']; names=['baseline-before','iq4_xs','q4_0']
-fig=figure('Faster 4-bit candidates. Quality gates pending.',
-    'Same-batch comparison · MTP-4 · Q4_K_M reference bracket: 24.74 → 24.72 aggregate decode tok/s',
-    'Screening · 9 timed requests / case · relative PPL checks passed · coding and strict-output validation incomplete')
-ax=axis(fig,[.17,.20,.30,.51],'Aggregate decode','tok/s · higher is better')
+fig=figure('Quantization',
+    'Vulkan · MTP-4',
+    'Screening · quality validation incomplete')
+ax=axis(fig,[.17,.20,.30,.51],'Aggregate decode','tok/s')
 bars(ax,labels,[q[n]['aggregate_decode_tps'] for n in names],[GREY,PURPLE,TEAL],34)
-ax=axis(fig,[.66,.20,.26,.51],'Time to first token · p95','seconds · lower is better')
+ax=axis(fig,[.66,.20,.26,.51],'First token · p95','seconds')
 bars(ax,labels,[q[n]['ttft_p95_s'] for n in names],[GREY,PURPLE,TEAL],.82,decimals=3)
 save(fig,'quantization')
 
-fig=figure('Q8 KV helps cold long-context response.',
-    'Vulkan · 128 output tokens · input uses half the allocated context · all scored retrieval checks passed',
-    'Screening · medians of 3 requests · input / capacity: 4K / 8K, 8K / 16K, 16K / 32K · smaller is better')
-for rect,key,title in [([.09,.21,.36,.51],'ttft_p50_s','Time to first token'),([.59,.21,.34,.51],'completion_p50_s','Request completion')]:
+fig=figure('Long-context latency',
+    'Vulkan · cold prefix · 128 output tokens',
+    'Screening · 3 requests · context capacity = 2× input')
+for rect,key,title in [([.09,.21,.36,.51],'ttft_p50_s','First token · median'),([.59,.21,.34,.51],'completion_p50_s','Completion · median')]:
     ax=axis(fig,rect,title,'Actual input tokens'); ax.xaxis.grid(False);ax.grid(axis='y',color=GRID)
     for kv,label,color in [('f16','F16',GREY),('q8_0','Q8',TEAL),('q4_0','Q4',PURPLE)]:
         vals=[]
@@ -113,23 +110,23 @@ for rect,key,title in [([.09,.21,.36,.51],'ttft_p50_s','Time to first token'),([
 save(fig,'long-context')
 
 c=D['concurrency-results']
-fig=figure('Batching changes the best MTP setting.',
-    'Vulkan · equal 8K context capacity per request · compare the same number of simultaneous clients',
-    'Screening · 128 tokens / request · aggregate wall throughput includes overhead · p95 from 3 timed batches')
+fig=figure('Concurrent throughput',
+    'Vulkan · 8K context per request · 128 output tokens',
+    'Screening · 3 batches · p95 completion shown below bars')
 for rect,title,keys,labels in [([.22,.20,.23,.51],'2 simultaneous requests', ['queued2-mtp4','clients2-mtp2','clients2-mtp4'],['1 slot · MTP-4','2 slots · MTP-2','2 slots · MTP-4']),
     ([.72,.20,.21,.51],'4 simultaneous requests',['queued4-mtp4','clients4-mtp0','clients4-mtp4'],['1 slot · MTP-4','4 slots · no MTP','4 slots · MTP-4'])]:
-    ax=axis(fig,rect,title,'Aggregate wall throughput · tok/s')
+    ax=axis(fig,rect,title,'Aggregate · tok/s')
     bars(ax,labels,[c[k]['aggregate_wall_tps'] for k in keys],[GREY,TEAL,PURPLE],48)
     for i,k in enumerate(keys):
-        ax.text(1,i+.28,f"p95 completion {c[k]['completion_p95_s']:.2f} s",color=MUTED,fontsize=9,va='top')
+        ax.text(1,i+.28,f"p95 {c[k]['completion_p95_s']:.2f} s",color=MUTED,fontsize=9,va='top')
 save(fig,'concurrency')
 
-fig=figure('The kernel boundary behind the MTP-8 cliff.',
-    'Same Q4_K feed-forward matrix · 21,504 output rows × 5,376 input columns · diagnostic operation timings',
-    'Trace mixes warmup and timed calls · generation rates from separate screening batches · no patch promoted')
-ax=axis(fig,[.23,.20,.23,.51],'Matrix operation duration','microseconds / call · lower is better')
+fig=figure('Vulkan kernel dispatch',
+    'Q4_K matrix · 21,504 × 5,376',
+    'Diagnostic trace · generation from separate screening batches')
+ax=axis(fig,[.23,.20,.23,.51],'Operation duration','microseconds / call')
 bars(ax,['5 columns · MMV','9 columns · MM'],D['kernel']['duration_us'],[TEAL,GOLD],1250,decimals=0)
-ax=axis(fig,[.76,.20,.17,.51],'Median generation','tok/s · higher is better')
+ax=axis(fig,[.76,.20,.17,.51],'Median generation','tok/s')
 rates=[next(r['median_tps'] for r in D['depth'] if r['case']=='mtp8'),D['runtime-results']['threshold16-mtp8']['median_decode_tps'],D['initial']['deployed']['median_decode_tps']]
 bars(ax,['Original MTP-8','Patched MTP-8','Deployed MTP-4'],rates,[GREY,PURPLE,BLUE],33)
 save(fig,'kernel-boundary')
