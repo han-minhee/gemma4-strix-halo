@@ -1,0 +1,48 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "retrieval",
+        "input_tokens": 8192,
+        "output_tokens": 128
+      },
+      {
+        "prompt": "retrieval",
+        "input_tokens": 8192,
+        "output_tokens": 128,
+        "reuse": true
+      }
+    ],
+    "context_per_slot": 16384,
+    "kv": "f16"
+  },
+  "cases": [
+    {
+      "name": "baseline-before",
+      "ubatch": 512
+    },
+    {
+      "name": "target-Q4_0-ub512",
+      "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_0.gguf",
+      "ubatch": 512
+    },
+    {
+      "name": "ub256",
+      "ubatch": 256
+    },
+    {
+      "name": "ub1024",
+      "ubatch": 1024
+    },
+    {
+      "name": "baseline-after",
+      "ubatch": 512
+    }
+  ],
+  "order_seed": 20261010
+}

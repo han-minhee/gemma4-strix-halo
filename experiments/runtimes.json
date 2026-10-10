@@ -1,0 +1,159 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose"
+      },
+      {
+        "prompt": "code"
+      },
+      {
+        "prompt": "korean"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "baseline-before"
+    },
+    {
+      "name": "ggml_vk_force_mmvq-mtp4",
+      "depth": 4,
+      "environment": {
+        "GGML_VK_FORCE_MMVQ": "1"
+      }
+    },
+    {
+      "name": "threshold16-mtp12",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-threshold16-vulkan/bin/llama-server",
+      "depth": 12
+    },
+    {
+      "name": "ggml_vk_force_mmvq-mtp7",
+      "depth": 7,
+      "environment": {
+        "GGML_VK_FORCE_MMVQ": "1"
+      }
+    },
+    {
+      "name": "rows8-mtp4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rows8-vulkan/bin/llama-server"
+    },
+    {
+      "name": "adaptive-vulkan-adaptive12",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-adaptive-vulkan/bin/llama-server",
+      "depth": 12,
+      "spec_type": "draft-mtp-adaptive"
+    },
+    {
+      "name": "rows2-mtp7",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rows2-vulkan/bin/llama-server",
+      "depth": 7
+    },
+    {
+      "name": "threshold16-mtp8",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-threshold16-vulkan/bin/llama-server",
+      "depth": 8
+    },
+    {
+      "name": "ggml_vk_disable_mmvq-mtp4",
+      "depth": 4,
+      "environment": {
+        "GGML_VK_DISABLE_MMVQ": "1"
+      }
+    },
+    {
+      "name": "adaptive-vulkan-adaptive7",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-adaptive-vulkan/bin/llama-server",
+      "depth": 7,
+      "spec_type": "draft-mtp-adaptive"
+    },
+    {
+      "name": "ggml_vk_disable_mmvq-mtp7",
+      "depth": 7,
+      "environment": {
+        "GGML_VK_DISABLE_MMVQ": "1"
+      }
+    },
+    {
+      "name": "rows2-mtp4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rows2-vulkan/bin/llama-server"
+    },
+    {
+      "name": "rows8-mtp7",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rows8-vulkan/bin/llama-server",
+      "depth": 7
+    },
+    {
+      "name": "adaptive-vulkan-fixed4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-adaptive-vulkan/bin/llama-server"
+    },
+    {
+      "name": "upstream-hip-fixed4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-upstream-hip/bin/llama-server",
+      "environment": {
+        "GGML_CUDA_GRAPH_OPT": "1"
+      }
+    },
+    {
+      "name": "adaptive-hip-adaptive12",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-adaptive-hip/bin/llama-server",
+      "environment": {
+        "GGML_CUDA_GRAPH_OPT": "1"
+      },
+      "depth": 12,
+      "spec_type": "draft-mtp-adaptive"
+    },
+    {
+      "name": "threshold16-mtp4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-threshold16-vulkan/bin/llama-server",
+      "depth": 4
+    },
+    {
+      "name": "rocmfpx-vulkan-fixed4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rocmfpx-vulkan/bin/llama-server",
+      "load_flags": [
+        "--no-mmap"
+      ]
+    },
+    {
+      "name": "adaptive-hip-fixed4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-adaptive-hip/bin/llama-server",
+      "environment": {
+        "GGML_CUDA_GRAPH_OPT": "1"
+      }
+    },
+    {
+      "name": "adaptive-hip-adaptive7",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-adaptive-hip/bin/llama-server",
+      "environment": {
+        "GGML_CUDA_GRAPH_OPT": "1"
+      },
+      "depth": 7,
+      "spec_type": "draft-mtp-adaptive"
+    },
+    {
+      "name": "rocmfpx-hip-fixed4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rocmfpx-hip/bin/llama-server",
+      "environment": {
+        "GGML_CUDA_GRAPH_OPT": "1"
+      },
+      "load_flags": [
+        "--no-mmap"
+      ]
+    },
+    {
+      "name": "upstream-vulkan-fixed4",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-upstream-vulkan/bin/llama-server"
+    },
+    {
+      "name": "baseline-after"
+    }
+  ],
+  "order_seed": 20261010
+}

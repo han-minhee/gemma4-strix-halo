@@ -1,0 +1,53 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose"
+      },
+      {
+        "prompt": "code"
+      },
+      {
+        "prompt": "korean"
+      }
+    ],
+    "measure_energy": true
+  },
+  "cases": [
+    {
+      "name": "unrestricted-before"
+    },
+    {
+      "name": "poll0",
+      "flags": [
+        "--poll",
+        "0"
+      ]
+    },
+    {
+      "name": "one-l3",
+      "prefix": [
+        "taskset",
+        "-c",
+        "0-7,16-23"
+      ]
+    },
+    {
+      "name": "two-physical-cores",
+      "prefix": [
+        "taskset",
+        "-c",
+        "0,1"
+      ]
+    },
+    {
+      "name": "unrestricted-after"
+    }
+  ],
+  "order_seed": 20261010
+}

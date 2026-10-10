@@ -1,0 +1,9 @@
+FROM fedora@sha256:be9d65e2344d805cc11114319c685ecaa96b6d9b4350a0a6460cdb931babbd19
+RUN dnf --setopt=install_weak_deps=False \
+    --setopt=fedora.metalink= \
+    --setopt=fedora.baseurl=https://ftp.kaist.ac.kr/fedora/linux/releases/44/Everything/x86_64/os/ \
+    --setopt=updates.metalink= \
+    --setopt=updates.baseurl=https://ftp.kaist.ac.kr/fedora/linux/updates/44/Everything/x86_64/ \
+    -y install python3 && dnf clean all
+USER 65534:65534
+ENTRYPOINT ["python3"]

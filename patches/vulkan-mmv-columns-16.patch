@@ -1,0 +1,32 @@
+diff --git a/ggml/src/ggml-vulkan/ggml-vulkan-types.h b/ggml/src/ggml-vulkan/ggml-vulkan-types.h
+index 4158ff7..1592efb 100644
+--- a/ggml/src/ggml-vulkan/ggml-vulkan-types.h
++++ b/ggml/src/ggml-vulkan/ggml-vulkan-types.h
+@@ -380,7 +380,7 @@ struct vk_queue {
+     bool transfer_only;
+ };
+ 
+-static constexpr uint32_t mul_mat_vec_max_cols = 8;
++static constexpr uint32_t mul_mat_vec_max_cols = 16;
+ 
+ static constexpr uint32_t p021_max_gqa_ratio = 8;
+ 
+diff --git a/tests/test-backend-ops.cpp b/tests/test-backend-ops.cpp
+index d889302..a5f9385 100644
+--- a/tests/test-backend-ops.cpp
++++ b/tests/test-backend-ops.cpp
+@@ -10351,6 +10351,14 @@ static std::vector<std::unique_ptr<test_case>> make_test_cases_eval() {
+         }
+     }
+ 
++    // Exercise both sides of the extended Vulkan mat-vec dispatch boundary.
++    for (ggml_type type_a : { GGML_TYPE_Q4_K, GGML_TYPE_Q6_K, GGML_TYPE_Q8_0, GGML_TYPE_F16 }) {
++        for (int n : {9, 12, 16, 17}) {
++            test_cases.emplace_back(new test_mul_mat(type_a, GGML_TYPE_F32, 4096, n, 1024, {1, 1}, {1, 1}));
++            test_cases.emplace_back(new test_mul_mat(type_a, GGML_TYPE_F32, 1023, n, 4096, {1, 1}, {1, 1}));
++        }
++    }
++
+     // The SYCL backend picks between one and two output rows per subgroup by row count when there
+     // are two destination columns (Q4_K_MMVQ_ROW_PAIR_MIN_NROWS in ggml-sycl/mmvq.cpp). Cover both
+     // sides of that boundary, including an odd row count above it for the row-pair tail.

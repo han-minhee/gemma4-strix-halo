@@ -1,0 +1,24 @@
+{
+  "sources": [
+    "https://huggingface.co/datasets/wikimedia/wikipedia",
+    "https://github.com/openai/human-eval"
+  ],
+  "corpus_selection": "First 100 rows of 20231101.en and 20231101.ko, each truncated to 250000 Unicode characters. HumanEval all 164 tasks.",
+  "files": [
+    {
+      "file": "wikipedia-en.txt",
+      "sha256": "bcbe62a437da803d0a0c257fce6ebdc6d62e2d3b73d2ab2534d4fff1284bfe36",
+      "bytes": 250549
+    },
+    {
+      "file": "HumanEval.jsonl",
+      "sha256": "1d49078ba3e2b196b9344535bef34a43021f038fad9561d6ee7c53450609a6a2",
+      "bytes": 214438
+    },
+    {
+      "file": "wikipedia-ko.txt",
+      "sha256": "1a146d1731ca09bffd7e3a7195a9373c0c7414b59454b9a4c1e832d9ec2a231c",
+      "bytes": 569378
+    }
+  ]
+}

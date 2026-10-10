@@ -1,0 +1,48 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 1,
+    "workloads": [
+      {
+        "prompt": "json",
+        "natural_eos": true
+      },
+      {
+        "prompt": "reasoning",
+        "thinking": true
+      },
+      {
+        "prompt": "retrieval",
+        "input_tokens": 1024,
+        "natural_eos": true
+      },
+      {
+        "prompt": "code",
+        "reuse": true
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "vulkan-rocmfp4-plain",
+      "depth": 0,
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rocmfpx-vulkan/bin/llama-server",
+      "model": "/srv/amd-halo/models/rocmfp4-strix-lean/gemma-4-31B-it-ROCmFP4-STRIX_LEAN-00001-of-00002.gguf",
+      "load_flags": [
+        "--no-mmap"
+      ]
+    },
+    {
+      "name": "hip-rocmfp4-plain",
+      "depth": 0,
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rocmfpx-hip/bin/llama-server",
+      "model": "/srv/amd-halo/models/rocmfp4-strix-lean/gemma-4-31B-it-ROCmFP4-STRIX_LEAN-00001-of-00002.gguf",
+      "load_flags": [
+        "--no-mmap"
+      ]
+    }
+  ]
+}

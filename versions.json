@@ -1,0 +1,54 @@
+{
+  "verified_date": "2026-10-10",
+  "llama_release": "v0.6.0",
+  "llama_commit": "d81235049384534c167caea52b85a694f6103d14",
+  "model_repo": "unsloth/gemma-4-31B-it-GGUF",
+  "model_revision": "c1ac76e99d5513b141e8adde7288b85c3f9c32ec",
+  "files": {
+    "Q4_K_M": {
+      "path": "gemma-4-31B-it-Q4_K_M.gguf",
+      "size": 18323733440,
+      "sha256": "38bd64c852c4b460434cc7162fa9bdcf242faf86502581a754cb72956bb17f84"
+    },
+    "Q6_K": {
+      "path": "gemma-4-31B-it-Q6_K.gguf",
+      "size": 25201486784,
+      "sha256": "4660692bca96f1d9d19c550641088789c8c0c25bb07965a1e2798e3cb16885fb"
+    },
+    "Q8_0": {
+      "path": "gemma-4-31B-it-Q8_0.gguf",
+      "size": 32635677632,
+      "sha256": "d5808e5874e660a85ab45b2da00c9e3b4a003621249a333772232d1a703e4d67"
+    },
+    "MTP": {
+      "path": "MTP/mtp-gemma-4-31B-it-Q8_0.gguf",
+      "size": 514687104,
+      "sha256": "5ae8b0117bed601e8924c6305bd5b0585de361d51f0e77091bcb4252cf1f27de"
+    },
+    "BF16_1": {
+      "path": "BF16/gemma-4-31B-it-BF16-00001-of-00002.gguf",
+      "size": 49950156960,
+      "sha256": "9aa27a4f71ce16ed6edda262b517e34d4301fd6506be773c0004eb2e021d4e14"
+    },
+    "BF16_2": {
+      "path": "BF16/gemma-4-31B-it-BF16-00002-of-00002.gguf",
+      "size": 11463033568,
+      "sha256": "eca9083855ec546e8cbad372e4348e7f9a118a4925fb108052621252dcb43504"
+    },
+    "IQ4_XS": {
+      "path": "gemma-4-31B-it-IQ4_XS.gguf",
+      "size": 16372460480,
+      "sha256": "e3d40b6e363954c993a6e28b160d881dfe5a243b62746bd4092b393d4f1d54e5"
+    },
+    "Q4_0": {
+      "path": "gemma-4-31B-it-Q4_0.gguf",
+      "size": 17338248128,
+      "sha256": "5c558b9b009e3ee69bde43e2b98a45d1f5afd316b9fbf447edd2ad4945a187bc"
+    },
+    "MTP_BF16": {
+      "path": "MTP/mtp-gemma-4-31B-it-BF16.gguf",
+      "size": 954843264,
+      "sha256": "8e6211a54648eca5af909bddf9331b447203b1a7febae6831491367afb61da7f"
+    }
+  }
+}

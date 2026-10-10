@@ -1,0 +1,47 @@
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -912,12 +912,15 @@
+                                                params_base.speculative.types.end(),
+                                                COMMON_SPECULATIVE_TYPE_DRAFT_DSPARK) != params_base.speculative.types.end();
+             if (spec_mtp) {
+-                // NOTE: do NOT set ctx_other = ctx_tgt for a separate-model MTP draft.
+-                // MTP reads the target's pre-norm hidden states via ctx_tgt directly
+-                // (see speculative.cpp). Setting ctx_other here would make the draft
+-                // ctor mis-detect is_mem_shared (gemma4-style shared KV) and disable
+-                // chain_heads for multi-head Step MTP3 drafts, breaking draft KV resets.
+                 cparams.ctx_type = LLAMA_CONTEXT_TYPE_MTP;
++                // Gemma's separate assistant requires the target's shared KV cache.
++                // Other separate MTP models keep independent draft KV and chained heads.
++                char arch_dft[64] = {};
++                llama_model_meta_val_str(model_dft.get(), "general.architecture", arch_dft, sizeof(arch_dft));
++                if (std::strcmp(arch_dft, "gemma4_assistant") == 0 ||
++                    std::strcmp(arch_dft, "gemma4-assistant") == 0) {
++                    cparams.ctx_other = ctx_tgt;
++                }
+             } else if (spec_eagle3 || spec_dflash || spec_dspark) {
+                 cparams.ctx_other = ctx_tgt;
+             }
+diff --git a/common/speculative.cpp b/common/speculative.cpp
+--- a/common/speculative.cpp
++++ b/common/speculative.cpp
+@@ -1446,7 +1446,8 @@
+             std::strcmp(arch_dft, "gemma4-assistant") == 0;
+ 
+         llama_set_embeddings_pre_norm(ctx_tgt, true, /*masked*/ false);
+-        llama_set_embeddings_pre_norm(ctx_dft, true, full_hidden_rows ? /*masked*/ false : /*masked*/ true);
++        // The assistant graph exposes only rows selected by its output IDs.
++        llama_set_embeddings_pre_norm(ctx_dft, true, /*masked*/ true);
+ 
+         // Only Gemma4 assistants share the target KV cache. Embedded MTP
+         // contexts also use ctx_other to read target hidden states, but keep
+@@ -1660,7 +1661,8 @@
+         auto * mem_dft = llama_get_memory(ctx_dft);
+ 
+         bool ok = true;
+-        for (int head = 0; head < n_mtp_layers; ++head) {
++        // Shared-KV assistants have no separate draft cache to prefill.
++        for (int head = 0; !is_mem_shared && head < n_mtp_layers; ++head) {
+             if (chain_heads) {
+                 // ref: https://github.com/ggml-org/llama.cpp/pull/24340/changes#r3413498544
+                 for (llama_seq_id seq_id = 0; seq_id < (llama_seq_id) n_seq; ++seq_id) {

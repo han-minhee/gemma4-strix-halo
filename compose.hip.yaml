@@ -1,0 +1,8 @@
+services:
+  inference:
+    devices:
+      - /dev/kfd:/dev/kfd
+    volumes:
+      - /srv/amd-halo/rocm-venv:/srv/amd-halo/rocm-venv:ro,z
+    environment:
+      LD_LIBRARY_PATH: ${ROCM_LIBRARY_PATH:?Set verified ROCm SDK library paths}:/opt/llama/bin

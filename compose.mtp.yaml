@@ -1,0 +1,7 @@
+services:
+  inference:
+    environment:
+      LLAMA_ARG_SPEC_DRAFT_MODEL: /models/${DRAFT_FILE:-mtp-gemma-4-31B-it-Q8_0.gguf}
+      LLAMA_ARG_SPEC_TYPE: ${SPEC_TYPE:-draft-mtp}
+      LLAMA_ARG_SPEC_DRAFT_N_MAX: "${DRAFT_TOKENS:-4}"
+      LLAMA_ARG_SPEC_DRAFT_P_MIN: "${DRAFT_P_MIN:-0}"

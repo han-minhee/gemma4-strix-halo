@@ -1,0 +1,4 @@
+# Pass the locally verified baseline tag; preserve its tested runtime dependencies.
+ARG BASE_IMAGE=amd-halo-gemma4:vulkan
+FROM ${BASE_IMAGE}
+COPY bin/ /opt/llama/bin/

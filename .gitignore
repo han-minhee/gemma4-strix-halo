@@ -1,0 +1,11 @@
+.env
+.runtime/
+results/
+models/
+__pycache__/
+*.pyc
+secrets/
+
+.chart-venv/
+.venv/
+.DS_Store

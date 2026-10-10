@@ -1,0 +1,41 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "json",
+        "natural_eos": true
+      },
+      {
+        "prompt": "retrieval",
+        "input_tokens": 1024,
+        "natural_eos": true
+      },
+      {
+        "prompt": "retrieval",
+        "input_tokens": 4096,
+        "natural_eos": true
+      }
+    ],
+    "quality_tasks": "/srv/amd-halo/experiments/faster-20261010/quality-data/HumanEval.jsonl",
+    "eval_image": "sha256:3583d9bf2a33920401943378983e8444e99f11b5fff2908c14bd2b6734aeeb63"
+  },
+  "cases": [
+    {
+      "name": "Q4_K_M",
+      "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf"
+    },
+    {
+      "name": "Q4_0",
+      "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_0.gguf"
+    },
+    {
+      "name": "IQ4_XS",
+      "model": "/srv/amd-halo/models/gemma-4-31B-it-IQ4_XS.gguf"
+    }
+  ]
+}

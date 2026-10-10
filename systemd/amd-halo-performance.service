@@ -1,0 +1,13 @@
+[Unit]
+Description=Measured firmware performance preset for Gemma inference
+ConditionPathExists=/sys/firmware/acpi/platform_profile
+Before=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/libexec/amd-halo-set-power-profile performance
+ExecStop=/usr/local/libexec/amd-halo-set-power-profile balanced
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

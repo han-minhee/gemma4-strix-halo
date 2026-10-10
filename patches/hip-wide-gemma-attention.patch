@@ -1,0 +1,63 @@
+--- a/ggml/src/ggml-cuda/fattn.cu
++++ b/ggml/src/ggml-cuda/fattn.cu
+@@ -155,6 +155,15 @@
+ static void ggml_cuda_flash_attn_ext_mma_f16_switch_ncols1(ggml_backend_cuda_context & ctx, ggml_tensor * dst) {
+     const int cc = ggml_cuda_info().devices[ggml_cuda_get_device()].cc;
+     const ggml_tensor * Q = dst->src[0];
++
++    // A 64-column, 512-wide Q tile needs 66,560 shared bytes. Keep this
++    // experimental AMD path within a 64 KiB LDS budget using 32 columns.
++    if constexpr (DKQ == 512 && (ncols2 == 4 || ncols2 == 8)) {
++        if (amd_wmma_available(cc)) {
++            ggml_cuda_flash_attn_ext_mma_f16_case<DKQ, DV, 32/ncols2, ncols2>(ctx, dst);
++            return;
++        }
++    }
+ 
+ #if !defined(GGML_USE_HIP) && !defined(GGML_USE_MUSA)
+     if constexpr (ggml_cuda_flash_attn_ext_mma_f16_may_use_sparse(DKQ, DV, 1, ncols2)) {
+@@ -697,7 +706,9 @@
+     }
+ 
+     // AMD WMMA is faster than the tile kernel if the wide tiles with high arithmetic intensity can be utilized.
+-    if ((amd_wmma_available(cc) && gqa_opt_applies && Q->ne[0] <= 256) && Q->ne[0] != 40 && Q->ne[0] != 72 &&
++    // Private gfx1151 experiment: include wide Gemma global-attention prefill.
++    const bool wide_gemma_prefill = Q->ne[0] == 512 && (gqa_ratio_eff == 4 || gqa_ratio_eff == 8) && Q->ne[1] * gqa_ratio_eff > 128;
++    if ((amd_wmma_available(cc) && gqa_opt_applies && (Q->ne[0] <= 256 || wide_gemma_prefill)) && Q->ne[0] != 40 && Q->ne[0] != 72 &&
+             Q->ne[1] * gqa_ratio_eff > (Q->ne[0] <= 128 ? 8 : 16)) {
+         return BEST_FATTN_KERNEL_MMA_F16;
+     }
+--- a/ggml/src/ggml-cuda/fattn-mma-f16.cuh
++++ b/ggml/src/ggml-cuda/fattn-mma-f16.cuh
+@@ -1859,7 +1859,8 @@
+ #endif // __CUDA_ARCH__ == GGML_CUDA_CC_TURING
+ 
+ #if defined(AMD_WMMA_AVAILABLE)
+-    if (ncols1*ncols2 < 16 || ncols2 == 1 || DKQ > 256) {
++    // Existing RDNA 512x512 configurations are tested only for wide prefill tiles.
++    if (ncols1*ncols2 < 16 || ncols2 == 1 || (DKQ > 256 && (DKQ != 512 || ncols1*ncols2 != 32 || (ncols2 != 4 && ncols2 != 8)))) {
+         NO_DEVICE_CODE;
+         return;
+     }
+--- a/tests/test-backend-ops.cpp
++++ b/tests/test-backend-ops.cpp
+@@ -11226,6 +11226,19 @@
+         }
+     }
+ 
++    // Gemma global-attention boundary and actual prefill widths; keep reference tolerances.
++    for (int gqa : {4, 8}) {
++        for (int nb : {16, 17, 32, 33, 64, 128, 129, 256, 512, 1024}) {
++            for (ggml_type type_KV : {GGML_TYPE_F16, GGML_TYPE_Q8_0, GGML_TYPE_Q4_0}) {
++                test_cases.emplace_back(new test_flash_attn_ext(512, 512, 4, {gqa, 1}, 1024, nb, true, false, 0, 0, GGML_PREC_F32, type_KV, type_KV));
++            }
++        }
++    }
++
++    for (int kv : {16384, 32768}) {
++        test_cases.emplace_back(new test_flash_attn_ext(512, 512, 4, {8, 1}, kv, 512, true, false, 0, 0, GGML_PREC_F32, GGML_TYPE_F16, GGML_TYPE_F16));
++    }
++
+     // prefill-shaped cases with long KV (nb >= 32, kv >= 1024): covers the
+     // XMX/GEMM-accelerated SYCL FA path which only activates for these shapes.
+     for (int kv : { 1024, 2048, }) {

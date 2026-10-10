@@ -1,0 +1,13 @@
+*
+!Dockerfile
+!.runtime
+!.runtime/build-vulkan
+!.runtime/build-vulkan/bin
+!.runtime/build-vulkan/bin/**
+!.runtime/build-hip
+!.runtime/build-hip/bin
+!.runtime/build-hip/bin/**
+.chart-venv/
+.venv/
+assets/
+data/

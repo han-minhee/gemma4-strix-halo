@@ -1,0 +1,366 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose"
+      },
+      {
+        "prompt": "code"
+      },
+      {
+        "prompt": "korean"
+      }
+    ],
+    "flags": [
+      "--cont-batching"
+    ]
+  },
+  "cases": [
+    {
+      "name": "baseline-before"
+    },
+    {
+      "name": "hip-clients2-mtp0",
+      "slots": 2,
+      "depth": 0,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "clients2-mtp2",
+      "slots": 2,
+      "depth": 2,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "hip-clients4-mtp0",
+      "slots": 4,
+      "depth": 0,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 4,
+          "output_tokens": 128
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "hip-clients2-mtp4",
+      "slots": 2,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "clients4-mtp2",
+      "slots": 4,
+      "depth": 2,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 4,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients1-mtp0",
+      "slots": 1,
+      "depth": 0,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 1,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 1,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 1,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients1-mtp2",
+      "slots": 1,
+      "depth": 2,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 1,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 1,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 1,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients2-mtp0",
+      "slots": 2,
+      "depth": 0,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients1-mtp4",
+      "slots": 1,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 1,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 1,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 1,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "hip-clients4-mtp4",
+      "slots": 4,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 4,
+          "output_tokens": 128
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "queued2-mtp4",
+      "slots": 1,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "queued4-mtp4",
+      "slots": 1,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 4,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients2-mtp4",
+      "slots": 2,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients4-mtp0",
+      "slots": 4,
+      "depth": 0,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 4,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "clients4-mtp4",
+      "slots": 4,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 4,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 4,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "baseline-after"
+    }
+  ],
+  "order_seed": 20261010
+}

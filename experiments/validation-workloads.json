@@ -1,0 +1,79 @@
+[
+  {
+    "prompt": "prose",
+    "output_tokens": 128
+  },
+  {
+    "prompt": "prose",
+    "output_tokens": 512
+  },
+  {
+    "prompt": "korean",
+    "output_tokens": 128
+  },
+  {
+    "prompt": "korean",
+    "output_tokens": 512
+  },
+  {
+    "prompt": "code",
+    "output_tokens": 128
+  },
+  {
+    "prompt": "code",
+    "output_tokens": 512
+  },
+  {
+    "prompt": "prose",
+    "input_tokens": 2048,
+    "output_tokens": 128
+  },
+  {
+    "prompt": "retrieval",
+    "input_tokens": 4096,
+    "output_tokens": 512
+  },
+  {
+    "prompt": "retrieval",
+    "input_tokens": 4096,
+    "output_tokens": 128,
+    "reuse": true
+  },
+  {
+    "prompt": "reasoning",
+    "thinking": false,
+    "output_tokens": 128
+  },
+  {
+    "prompt": "reasoning",
+    "thinking": true,
+    "output_tokens": 512
+  },
+  {
+    "prompt": "json",
+    "natural_eos": true,
+    "output_tokens": 128
+  },
+  {
+    "prompt": "retrieval",
+    "input_tokens": 4096,
+    "natural_eos": true,
+    "output_tokens": 128
+  },
+  {
+    "prompt": "prose",
+    "natural_eos": true,
+    "output_tokens": 512
+  },
+  {
+    "prompt": "conversation",
+    "reuse": true,
+    "output_tokens": 128
+  },
+  {
+    "prompt": "reasoning",
+    "thinking": true,
+    "natural_eos": true,
+    "output_tokens": 512
+  }
+]

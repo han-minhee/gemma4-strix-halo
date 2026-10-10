@@ -1,0 +1,42 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose"
+      },
+      {
+        "prompt": "code"
+      },
+      {
+        "prompt": "korean"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "baseline-before"
+    },
+    {
+      "name": "rocmfpx-gemma-v2-vulkan",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rocmfpx-gemma-v2-vulkan/bin/llama-server",
+      "load_flags": [
+        "--no-mmap"
+      ]
+    },
+    {
+      "name": "rocmfpx-gemma-v2-hip",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-rocmfpx-gemma-v2-hip/bin/llama-server",
+      "load_flags": [
+        "--no-mmap"
+      ]
+    },
+    {
+      "name": "baseline-after"
+    }
+  ]
+}

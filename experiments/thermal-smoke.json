@@ -1,0 +1,51 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose"
+      },
+      {
+        "prompt": "code"
+      },
+      {
+        "prompt": "korean"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "thermal-smoke",
+      "repetitions": 1,
+      "workloads": [
+        {
+          "prompt": "json",
+          "natural_eos": true
+        },
+        {
+          "prompt": "reasoning",
+          "thinking": true
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 1024,
+          "natural_eos": true
+        },
+        {
+          "prompt": "code",
+          "reuse": true
+        },
+        {
+          "prompt": "conversation",
+          "reuse": true
+        }
+      ],
+      "measure_energy": true,
+      "thermal_stabilization": true
+    }
+  ]
+}

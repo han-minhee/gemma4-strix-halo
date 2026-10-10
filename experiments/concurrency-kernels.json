@@ -1,0 +1,106 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose",
+        "concurrency": 4,
+        "output_tokens": 128
+      },
+      {
+        "prompt": "code",
+        "concurrency": 4,
+        "output_tokens": 128
+      },
+      {
+        "prompt": "korean",
+        "concurrency": 4,
+        "output_tokens": 128
+      }
+    ],
+    "slots": 4,
+    "depth": 2,
+    "flags": [
+      "--cont-batching"
+    ]
+  },
+  "cases": [
+    {
+      "name": "reference-mtp2-before"
+    },
+    {
+      "name": "threshold16-mtp3",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-threshold16-vulkan/bin/llama-server",
+      "depth": 3
+    },
+    {
+      "name": "reference-mtp3",
+      "depth": 3
+    },
+    {
+      "name": "reference-mtp1",
+      "depth": 1
+    },
+    {
+      "name": "reference-clients4-slots2-mtp2",
+      "slots": 2
+    },
+    {
+      "name": "threshold16-mtp2",
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-threshold16-vulkan/bin/llama-server"
+    },
+    {
+      "name": "reference-clients2-mtp4",
+      "slots": 2,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ]
+    },
+    {
+      "name": "threshold16-clients2-mtp4",
+      "slots": 2,
+      "depth": 4,
+      "workloads": [
+        {
+          "prompt": "prose",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "code",
+          "concurrency": 2,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "korean",
+          "concurrency": 2,
+          "output_tokens": 128
+        }
+      ],
+      "binary": "/srv/amd-halo/experiments/faster-20261010/build-threshold16-vulkan/bin/llama-server"
+    },
+    {
+      "name": "reference-mtp2-after"
+    }
+  ],
+  "order_seed": 20261010
+}

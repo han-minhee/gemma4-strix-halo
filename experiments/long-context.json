@@ -1,0 +1,278 @@
+{
+  "common": {
+    "binary": "/srv/amd-halo/stack/.runtime/build-vulkan/bin/llama-server",
+    "model": "/srv/amd-halo/models/gemma-4-31B-it-Q4_K_M.gguf",
+    "draft": "/srv/amd-halo/models/mtp-gemma-4-31B-it-Q8_0.gguf",
+    "key_file": "/srv/amd-halo/secrets/api-key",
+    "repetitions": 3,
+    "workloads": [
+      {
+        "prompt": "prose"
+      },
+      {
+        "prompt": "code"
+      },
+      {
+        "prompt": "korean"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "baseline-before",
+      "context_per_slot": 8192,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context32768-q8_0",
+      "context_per_slot": 32768,
+      "kv": "q8_0",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "hip-context8192-f16",
+      "context_per_slot": 8192,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "context32768-q4_0",
+      "context_per_slot": 32768,
+      "kv": "q4_0",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context16384-q4_0",
+      "context_per_slot": 16384,
+      "kv": "q4_0",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context16384-f16",
+      "context_per_slot": 16384,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context8192-q8_0",
+      "context_per_slot": 8192,
+      "kv": "q8_0",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "hip-context16384-f16",
+      "context_per_slot": 16384,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "hip-context32768-f16",
+      "context_per_slot": 32768,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ],
+      "binary": "/srv/amd-halo/stack/.runtime/build-hip/bin/llama-server"
+    },
+    {
+      "name": "context8192-q4_0",
+      "context_per_slot": 8192,
+      "kv": "q4_0",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context32768-f16",
+      "context_per_slot": 32768,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 16384,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context16384-q8_0",
+      "context_per_slot": 16384,
+      "kv": "q8_0",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 8192,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "context8192-f16",
+      "context_per_slot": 8192,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    },
+    {
+      "name": "baseline-after",
+      "context_per_slot": 8192,
+      "kv": "f16",
+      "workloads": [
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128
+        },
+        {
+          "prompt": "retrieval",
+          "input_tokens": 4096,
+          "output_tokens": 128,
+          "reuse": true
+        }
+      ]
+    }
+  ],
+  "order_seed": 20261010
+}

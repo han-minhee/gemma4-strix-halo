@@ -1,0 +1,74 @@
+{
+  "baseline": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0"
+  },
+  "upstream": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "10a60cf303566e10d6a7a2774c17d2085503d87b"
+  },
+  "adaptive": {
+    "repository": "stew675/llama.cpp",
+    "commit": "b0d2c5e617be4285af453e41117441508c7121f3",
+    "pull_request": "https://github.com/ggml-org/llama.cpp/pull/27210"
+  },
+  "rocmfpx": {
+    "repository": "charlie12345/ROCmFPX",
+    "commit": "fb08d7cdb67082ddda15a25e64dc7ec413afc41c"
+  },
+  "threshold16": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0",
+    "patch": "patches/vulkan-mmv-columns-16.patch",
+    "patch_sha256": "920520cfaaa6ce5bf1b151d11d80708d636a86f27ab021f7a6202ca34b49202d"
+  },
+  "rows2": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0",
+    "patch": "patches/vulkan-mmv-rows-2.patch",
+    "patch_sha256": "6ec179ab1b0943571960548ea61ab300992b03deed08e7f062162972777b8de6"
+  },
+  "rows8": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0",
+    "patch": "patches/vulkan-mmv-rows-8.patch",
+    "patch_sha256": "2457a3e27e40561643fa64466b06e5e4546ea8f4e1dc10bea62137fa4a5aafc4"
+  },
+  "lowcols2": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0",
+    "patch": "patches/vulkan-low-column-rows-2.patch",
+    "patch_sha256": "bb2496391853a96fa6248a4caf3ae9bc705ce73d94d7aff4ee97aa3f6792a9d2"
+  },
+  "lowcols4": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0",
+    "patch": "patches/vulkan-low-column-rows-4.patch",
+    "patch_sha256": "7cfe5fb13185d51a0950c26bbf89209c44918b4698ae4a77aa1bc203da7415fc"
+  },
+  "rocmfpx-gemma": {
+    "repository": "charlie12345/ROCmFPX",
+    "commit": "fb08d7cdb67082ddda15a25e64dc7ec413afc41c",
+    "patch": "patches/rocmfpx-gemma-shared-kv.patch",
+    "patch_sha256": "6f9f27c3b737ff0c5b50ab5609faaa52ff3f65a7504afcf8adb960aa9592c093"
+  },
+  "rocmfpx-gemma-v2": {
+    "repository": "charlie12345/ROCmFPX",
+    "commit": "fb08d7cdb67082ddda15a25e64dc7ec413afc41c",
+    "patch": "patches/rocmfpx-gemma-shared-kv-v2.patch",
+    "patch_sha256": "9a6aff98bb493da6af7a13d31cddbe827b5afba6a159f1bd5de20c78703bab42"
+  },
+  "hip-wide-fa": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "d81235049384534c167caea52b85a694f6103d14",
+    "release": "v0.6.0",
+    "patch": "patches/hip-wide-gemma-attention.patch",
+    "patch_sha256": "b501c432b69ec6f7047bbe54487b135ebf63ba99b5c4c171c46da08552f27ee3"
+  }
+}
